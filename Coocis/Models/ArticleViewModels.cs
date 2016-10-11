@@ -14,7 +14,7 @@ namespace Coocis.Models
         public string Author { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime ReleaseDateTime { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter a title")]
         [Display(Name = "Title")]
         public string Title { get; set; }
         [Required]
