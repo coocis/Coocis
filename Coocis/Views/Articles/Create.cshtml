@@ -3,10 +3,8 @@
 @{
     ViewBag.Title = "Create";
 }
-
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
 <h2>Create</h2>
-
-
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -25,11 +23,13 @@
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextArea("Content", htmlAttributes: new { id = "Content2" })
+                <script>
+                    CKEDITOR.replace('Content2');
+                </script>
                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
             </div>
         </div>

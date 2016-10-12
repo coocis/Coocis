@@ -56,7 +56,6 @@ namespace Coocis.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(article);
         }
 
@@ -124,6 +123,12 @@ namespace Coocis.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public List<int> Destroy(List<int> original, params int[] numbers)
+        {
+            original.RemoveAll(i => numbers.Contains(i));
+            return original;
         }
     }
 }

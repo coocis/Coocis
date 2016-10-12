@@ -13,6 +13,7 @@ namespace Coocis.Models
         public int ID { get; set; }
         public string Author { get; set; }
         [DataType(DataType.DateTime)]
+        [Display(Name = "Release")]
         public DateTime ReleaseDateTime { get; set; }
         [Required(ErrorMessage = "Please enter a title")]
         [Display(Name = "Title")]
