@@ -154,7 +154,7 @@ namespace Coocis.Controllers
                 //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var user = new ApplicationUser { UserName = "123456789@qq.com", Email = "123456789@qq.com" };
                 //var result = await UserManager.CreateAsync(user, model.Password);
-                var result = await UserManager.CreateAsync(user, "Freetime0");
+                var result = await UserManager.CreateAsync(user, "123456789");
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
