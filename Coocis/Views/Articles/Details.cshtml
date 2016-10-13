@@ -6,18 +6,22 @@
 
 <h2>@Model.Title</h2>
 
-<div>
+<div class="clearfix">
     <b>@Html.DisplayNameFor(model => model.Author):</b>
     @Html.DisplayFor(model => model.Author) |
     @Html.DisplayFor(model => model.ReleaseDateTime)
     <hr />
-    @Html.DisplayTextFor(model => model.Content)
+    <div>
+        @Html.Raw(Model.Content)
+    </div>
 </div>
 <hr />
-<span>
-    @Html.ActionLink("Back to List", "Index")
-</span>
-<span style="float:right">
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Delete", "Delete", new { id = Model.ID })
-</span>
+<div>
+    <span>
+        @Html.ActionLink("Back to List", "Index")
+    </span>
+    <span style="float:right">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.ID })
+    </span>
+</div>
