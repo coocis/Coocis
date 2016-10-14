@@ -10,17 +10,17 @@ using Coocis.Models;
 
 namespace Coocis.Controllers
 {
-    public class ArticlesController : Controller
+    public class ArticleController : Controller
     {
         private ArticleDBContext db = new ArticleDBContext();
 
-        // GET: Articles
+        // GET: Article
         public ActionResult Index()
         {
             return View(db.Articles.ToList());
         }
 
-        // GET: Articles/Details/5
+        // GET: Article/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,7 +35,7 @@ namespace Coocis.Controllers
             return View(article);
         }
 
-        // GET: Articles/Create
+        // GET: Article/Create
         public ActionResult Create()
         {
             return View();
@@ -51,7 +51,7 @@ namespace Coocis.Controllers
         {
             if (ModelState.IsValid)
             {
-                article.Author = "anonymous";
+                article.Author = User.Identity.Name;
                 article.ReleaseDateTime = DateTime.Now;
                 db.Articles.Add(article);
                 db.SaveChanges();
@@ -60,7 +60,7 @@ namespace Coocis.Controllers
             return View(article);
         }
 
-        // GET: Articles/Edit/5
+        // GET: Article/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -75,7 +75,7 @@ namespace Coocis.Controllers
             return View(article);
         }
 
-        // POST: Articles/Edit/5
+        // POST: Article/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -92,7 +92,7 @@ namespace Coocis.Controllers
             return View(article);
         }
 
-        // GET: Articles/Delete/5
+        // GET: Article/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,7 +107,7 @@ namespace Coocis.Controllers
             return View(article);
         }
 
-        // POST: Articles/Delete/5
+        // POST: Article/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

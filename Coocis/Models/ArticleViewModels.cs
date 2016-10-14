@@ -30,7 +30,8 @@ namespace Coocis.Models
 
         public ArticleDBContext() : base("name=MySqlConnection")
         {
-            Database.SetInitializer<ArticleDBContext>(new DropCreateDatabaseAlways<ArticleDBContext>());
+            ApplicationDbContext.Create();
+            //Database.SetInitializer<ArticleDBContext>(new DropCreateDatabaseIfModelChanges<ArticleDBContext>());
         }
     }
 }

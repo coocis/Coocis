@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using MySql.Data.Entity;
 
 namespace Coocis.Models
 {
@@ -18,12 +19,14 @@ namespace Coocis.Models
         }
     }
 
+    [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Article> Articles { get; set; }
         public ApplicationDbContext()
             : base("name=MySqlConnection", throwIfV1Schema: false)
         {
-            Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
+            //Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
         }
 
         public static ApplicationDbContext Create()
