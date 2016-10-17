@@ -1,4 +1,6 @@
-﻿@model Coocis.Models.Article
+﻿@using Coocis.Models
+@model Coocis.Models.Article
+
 
 @{
     ViewBag.Title = "Create";
@@ -30,6 +32,13 @@
                     CKEDITOR.replace('Content');
                 </script>
                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tags, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Tags[0].Name)
+                @Html.ValidationMessageFor(model => model.Tags[0].Name, "", new { @class = "text-danger" })
             </div>
         </div>
 

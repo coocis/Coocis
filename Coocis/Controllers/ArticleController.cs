@@ -47,7 +47,7 @@ namespace Coocis.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "ID,Title,Author,ReleaseDateTime,Content")] Article article)
+        public ActionResult Create([Bind(Include = "ID,Title,Author,ReleaseDateTime,Content,Tags")] Article article)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace Coocis.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Edit([Bind(Include = "ID,Title,Author,ReleaseDateTime,Content")] Article article)
+        public ActionResult Edit([Bind(Include = "ID,Title,Author,ReleaseDateTime,Content,Tags")] Article article)
         {
             if (ModelState.IsValid)
             {

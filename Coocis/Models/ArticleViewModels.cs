@@ -21,6 +21,7 @@ namespace Coocis.Models
         [Required]
         [Display(Name = "Content")]
         public string Content { get; set; }
+        public List<ArticleTag> Tags { get; set; }
     }
 
     [DbConfigurationType(typeof(MySqlEFConfiguration))]

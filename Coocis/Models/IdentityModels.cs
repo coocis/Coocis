@@ -26,7 +26,7 @@ namespace Coocis.Models
         public ApplicationDbContext()
             : base("name=MySqlConnection", throwIfV1Schema: false)
         {
-            //Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
+            Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
         }
 
         public static ApplicationDbContext Create()
