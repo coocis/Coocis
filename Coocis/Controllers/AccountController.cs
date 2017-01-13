@@ -154,11 +154,12 @@ namespace Coocis.Controllers
                 //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var user = new ApplicationUser { UserName = "123456789@qq.com", Email = "123456789@qq.com" };
                 //var result = await UserManager.CreateAsync(user, model.Password);
-                var result = await UserManager.CreateAsync(user, "123456789");
-                if (result.Succeeded)
+                //var result = await UserManager.CreateAsync(user, "123456789");
+                //if (result.Succeeded)
+                if(true)
                 {
                     //注册完不自动登录
-                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -166,9 +167,9 @@ namespace Coocis.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Articles");
+                    return RedirectToAction("Index", "Article");
                 }
-                AddErrors(result);
+                //AddErrors(result);
             }
             // If we got this far, something failed, redisplay form
             return View(model);
